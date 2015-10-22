@@ -41,7 +41,7 @@ int csiebox_client_run(csiebox_client* client) {
     return 0;
   }
   fprintf(stderr, "login success\n");
-  
+
   //====================
   //        TODO
   //====================

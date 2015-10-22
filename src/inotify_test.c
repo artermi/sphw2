@@ -43,7 +43,13 @@ int main() {
         printf("modify ");
       }
       if (event->mask & IN_ISDIR) {
-        printf("dir\n");
+	char path[100];
+	getcwd(path,sizeof(path));
+	sprintf(path,"%s/%s",path,event -> name);
+	wd = inotify_add_watch(fd, path, IN_CREATE | IN_DELETE | IN_ATTRIB | IN_MODIFY);
+	printf("%s\n",path);
+	printf("dir\n");
+	chdir(path);
       } else {
         printf("file\n");
       }

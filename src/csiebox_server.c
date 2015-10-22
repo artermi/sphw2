@@ -291,6 +291,7 @@ static void login(
     header.res.client_id = info->conn_fd;
     char* homedir = get_user_homedir(server, info);
     mkdir(homedir, DIR_S_FLAG);
+    printf("%s\n",homedir);
     free(homedir);
   } else {
     header.res.status = CSIEBOX_PROTOCOL_STATUS_FAIL;
